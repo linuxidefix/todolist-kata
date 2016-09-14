@@ -1,0 +1,29 @@
+$primary: blue;
+$danger: red;
+$success: green;
+$warning: yellow;
+
+$phone-max: 767px;
+
+$tablet-min: 768px;
+$tablet-max: 1023px;
+$tablet-col: ($tablet-min - 80px) / 8;
+
+$desktop-xs-min: 1024px;
+$desktop-xs-max: 1279px;
+$desktop-xs-col: ($desktop-xs-min - 80px) / 8;
+
+$desktop-sm-min: 1280px;
+$desktop-sm-max: 1439px;
+$desktop-sm-col: ($desktop-sm-min - 80px) / 8;
+
+$desktop-md-min: 1440px;
+$desktop-md-max: 1679px;
+$desktop-md-col: ($desktop-md-min - 80px) / 8;
+
+$desktop-lg-min: 1680px;
+$desktop-lg-max: 1919px;
+$desktop-lg-col: ($desktop-lg-min - 80px) / 8;
+
+$desktop-xl-min: 1920px;
+$desktop-xl-col: ($desktop-xl-min - 80px) / 8;

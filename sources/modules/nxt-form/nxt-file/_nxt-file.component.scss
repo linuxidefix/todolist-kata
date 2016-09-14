@@ -1,0 +1,49 @@
+.nxt-file-container {
+    margin-top: 15px;
+
+    .nxt-file-drop-zone {
+        display: block;
+        border: 5px black dashed;
+        padding: 20px;
+        cursor: pointer;
+
+        * {
+            pointer-events: none;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        input {
+            display: none;
+        }
+
+        .nxt-file-text-drop {
+            display: none;
+            color: green;
+        }
+
+        &.hide {
+            display: none;
+        }
+
+        &.dragover {
+            border-color: green;
+
+            .nxt-file-text-rules {
+                display: none;
+            }
+
+            .nxt-file-text-drop {
+                display: block;
+            }
+        }
+    }
+
+    &.error {
+        .nxt-file-drop-zone {
+            border-color: red;
+        }
+    }
+}

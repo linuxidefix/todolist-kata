@@ -1,0 +1,19 @@
+.nxt-textarea-container {
+    label {
+        textarea {
+            display: block;
+            width: 100%;
+            height: 100px;
+            padding: 5px;
+            border: 1px solid black;
+        }
+    }
+
+    &.error {
+        label {
+            textarea {
+                border-color: red;
+            }
+        }
+    }
+}

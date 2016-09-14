@@ -1,0 +1,14 @@
+nxt-tooltip {
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 9999;
+
+    .nxt-tooltip-container {
+        padding: 5px;
+        background-color: white;
+        border: 1px solid #000000;
+        max-width: 300px;
+    }
+}
