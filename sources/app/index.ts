@@ -1,0 +1,5 @@
+export { appConfig } from './app.config'
+export { AppActions } from './app.actions'
+export { appReducer } from './app.reducer'
+export { Bootstrap } from './app.bootstrap'
+export { AppComponent } from './app.component'

@@ -1,0 +1,47 @@
+.nxt-checkbox-container {
+    margin-top: 15px;
+    
+    label {
+        .nxt-checkbox-item-button {
+            width: 20px;
+            height: 20px;
+            border: black 1px solid;
+            background-color: white;
+        }
+
+        &.checked {
+            .nxt-checkbox-item-button {
+                background-color: black;
+            }
+        }
+    }
+
+    &.disabled {
+        label {
+            &, * {
+                cursor: no-drop;
+            }
+
+            .nxt-checkbox-item-button {
+                border: gray 1px solid;
+                background-color: lightgray;
+            }
+
+            &.checked {
+                .nxt-checkbox-item-button {
+                    background-color: gray;
+                }
+            }
+        }
+    }
+
+    &.error {
+        .nxt-checkbox-content {
+            .nxt-checkbox-item-container {
+                .nxt-checkbox-item-button {
+                    border-color: red;
+                }
+            }
+        }
+    }
+}

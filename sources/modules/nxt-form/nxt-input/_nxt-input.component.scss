@@ -1,0 +1,19 @@
+.nxt-input-container {
+    label {
+        input {
+            display: block;
+            width: 100%;
+            height: 40px;
+            padding: 5px;
+            border: 1px solid black;
+        }
+    }
+
+    &.error {
+        label {
+            input {
+                border-color: red;
+            }
+        }
+    }
+}

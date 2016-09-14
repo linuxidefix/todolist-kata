@@ -1,0 +1,14 @@
+<header>
+    <h1 class="text-center">NG2 TODOLIST</h1>
+</header>
+
+<main id="main-container">
+    <router-outlet></router-outlet>
+</main>
+
+<div id="loader-container" [ngClass]="{hidden: !loading}">
+    <div id="loader">
+        <img align="absmiddle" src="/img/loader.gif" />
+        <span>{{'Chargement...' | translate}}</span>
+    </div>
+</div>
