@@ -106,7 +106,7 @@ class MaListeComponent {
 
     constructor () {
         this.superheros = [
-            new Hero('Batman', 'Bruce Wayne', false),
+            new Hero('Batman', 'Bruce WAYNE', false),
             new Hero('Ironman', 'Tony STARK', true),
             new Hero('Flash', 'Barry ALLEN', false),
             new Hero('Superman', 'Clark KENT', true),
