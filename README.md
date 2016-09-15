@@ -7,6 +7,8 @@ Avant toute chose il faut installer NodeJS (+ NPM) version 6 minimum : https://n
 Ensuite rendez-vous à la racine du projet avec un terminal puis entrez `npm install`. NPM va alors installer toutes les dépendences nécessaires au bon fonctionnement de notre application.
 Une fois terminé lancez le serveur local en entrant `npm run dev` (toujours dans votre terminal) puis rendez-vous sur http://localhost:8080
 
+une fois l'exercice terminé vous pouvez accéder à la solution en faisant un checkout sur la branche `solution`
+
 ## Qu'est-ce qu'une Todolist ?
 
 Une Todolist est tout simplement un outil permettant de noter une liste de tâches à faire. Dans ce KATA nous allons en développer un en Angular 2.
