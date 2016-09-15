@@ -155,7 +155,7 @@ Puis ajoutons le pipe dans notre component :
     pipes: [ VolantPipe ],
     selector: 'ma-liste',
     template: `<ul class="liste-superheros">
-        <li *ngFor="let s of (superheros | volant); let i = index" class="superhero">{{ s.nom + '(' + s.vraiNom + ')' }}</li>
+        <li *ngFor="let s of (superheros | volant); let i = index" class="superhero">{{ i + '- ' + s.nom + '(' + s.vraiNom + ')' }}</li>
     </ul>`
 })
 
