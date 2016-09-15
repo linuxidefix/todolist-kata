@@ -16,11 +16,11 @@ import { ComponentComplement } from '../../../base.component'
             <label>
                 <div class="label" *ngIf="label != ''">{{label}} <span class="nxt-input-required" *ngIf="required">*</span> :</div>
                 <div [ngSwitch]="type">
-                    <input *ngSwitchCase="'email'" type="email" [name]="name" [placeholder]="placeholder" (change)="initChange($event)" (keyup)="initChange($event)" [value]="value" [required]="required" [disabled]="disabled" />
-                    <input *ngSwitchCase="'phone'" type="phone" [name]="name" [placeholder]="placeholder" (change)="initChange($event)" (keyup)="initChange($event)" [value]="value" [required]="required" [disabled]="disabled" />
-                    <input *ngSwitchCase="'number'" type="number" [name]="name" [placeholder]="placeholder" (change)="initChange($event)" (keyup)="initChange($event)" [value]="value" [required]="required" [disabled]="disabled" />
-                    <input *ngSwitchCase="'password'" type="password" [name]="name" [placeholder]="placeholder" (change)="initChange($event)" (keyup)="initChange($event)" [value]="value" [required]="required" [disabled]="disabled" />
-                    <input *ngSwitchCase="'text'" type="text" [name]="name" [placeholder]="placeholder" (change)="initChange($event)" (keyup)="initChange($event)" [value]="value" [required]="required" [disabled]="disabled"/>
+                    <input *ngSwitchCase="'email'" type="email" [name]="name" [placeholder]="placeholder" [ngModel]="value" (ngModelChange)="initChange($event)" [required]="required" [disabled]="disabled" />
+                    <input *ngSwitchCase="'phone'" type="phone" [name]="name" [placeholder]="placeholder" [ngModel]="value" (ngModelChange)="initChange($event)" [required]="required" [disabled]="disabled" />
+                    <input *ngSwitchCase="'number'" type="number" [name]="name" [placeholder]="placeholder" [ngModel]="value" (ngModelChange)="initChange($event)" [required]="required" [disabled]="disabled" />
+                    <input *ngSwitchCase="'password'" type="password" [name]="name" [placeholder]="placeholder" [ngModel]="value" (ngModelChange)="initChange($event)" [required]="required" [disabled]="disabled" />
+                    <input *ngSwitchCase="'text'" type="text" [name]="name" [placeholder]="placeholder" [ngModel]="value" (ngModelChange)="initChange($event)" [required]="required" [disabled]="disabled"/>
                 </div>
             </label>
 
@@ -49,9 +49,7 @@ export class NxtInputComponent extends NxtFormComponent {
 
     public initChange (event) {
         if (!this.disabled) {
-            let value = event.path !== undefined ? event.path[0].value : event.target.value
-
-            this.onChange(value)
+            this.onChange(event)
         }
     }
 
