@@ -9,7 +9,7 @@ Une fois terminé lancez le serveur local en entrant `npm run dev` (toujours dan
 
 ## Qu'est-ce qu'une Todolist ?
 
-Une Todolist est tout simplement un outils permettant de noter une liste de tâches à faire. Dans ce KATA nous allons en développer un en Angular 2.
+Une Todolist est tout simplement un outil permettant de noter une liste de tâches à faire. Dans ce KATA nous allons en développer un en Angular 2.
 Dans cette Todolist nous devons pouvoir :
 
 - Ajouter une tâches
@@ -24,11 +24,11 @@ Angular 2 est la dernière version du framework JavaScript développé par Googl
 
 ### Component
 
-Dans Angular 2 on fonctionne principalement avec des Component (des composant HTML auxquel on affecte un style et un comportement spécifique). Ceux-ci sont composé au minimum :
+Dans Angular 2 on fonctionne principalement avec des Components (un composant HTML auquel on y affecte un style et un comportement spécifique). Ceux-ci sont composé d'au minimum :
 
-- d'un template -> Une vue sur laquelle on mettra notre code HTML
-- d'un selector -> Nom de l'element HTML qui contiendra le template
-- d'un controller -> C'est là que tout le code JavaScript (TypeScript en l'occurence) du component sera executé
+- un template -> Une vue sur laquelle on mettra notre code HTML
+- un selector -> Nom de l'element HTML qui contiendra le template
+- un controller -> C'est là que tout le code JavaScript (TypeScript en l'occurence) du component sera executé
 
 ### Binding
 
@@ -51,13 +51,15 @@ class MonFormulaireComponent {
     }
 
     public onSubmit () {
-        // Formulaire Envoyé
+        alert('Formulaire envoyé, valeur du champ : ' + this.monChamp)
     }
 }
 ```
 
 Ici comme on peut le voir Il y a dans le Template des attributs inhabituels. Prenons `(ngSubmit)="onSubmit()"`, dans Angular 2 lorsqu'on veut créer un évènement de la vue au controller on utilise des attributs entre parenthèses "()" et on lui affecte la méthode du controller que l'on souhaite invoquer
+
 A l'inverse lorsqu'on souhaite envoyer une valeur du controller vers la vue on utilise des crochets "[]" et lui affecte la valeur souhaitée
+
 Parfois on souhaite que les informations transitent dans les deux sens il faudra alors utiliser les deux en même temps comme on peut le voir dans notre exemple `[(ngModel)]="monChamp"`. Ici, on affecte la valeur de "monChamp" à "ngModel" et lui se chargera de mettre à jour "monChamp" à chaque modification.
 
 ### *ngIf
@@ -93,7 +95,7 @@ Admettons que nous ayons une liste de superhéros dans un tableau et que nous so
 @Component({
     selector: 'ma-liste',
     template: `<ul class="liste-superheros">
-        <li *ngFor="let s of superheros" class="superhero">{{ s.nom + '(' + s.vraiNom + ')' }}</li>
+        <li *ngFor="let s of superheros; let i = index" class="superhero">{{ i + '- ' + s.nom + '(' + s.vraiNom + ')' }}</li>
     </ul>`
 })
 
@@ -125,6 +127,8 @@ class Hero {
 }
 ```
 
+Notez dans le `*ngFor` la présence de `let i = index`. Cela nous permet tout simplement d'affecter à la variable `i` la valeur de l'index de la ligne du tableau qu'on est en train de parcourir
+
 ### Pipes
 
 Les pipes dans Angular 2 permettent de retourner une valeur modifiée par rapport à des paramettres qu'on lui fournit. Par exemple transformer une chaine de caractères en la mettant en majuscule ou de filtrer un tableau...
@@ -136,8 +140,8 @@ Reprenons notre exemple de superhéros, développons un pipe nous permettant de 
 })
 
 export class VolantPipe implements PipeTransform {
-    public transform (hero: Hero[]): Hero[] {
-        return hero.filter(s => s.volant)
+    public transform (heros: Hero[]): Hero[] {
+        return heros.filter(s => s.volant)
     }
 }
 ```
@@ -156,7 +160,7 @@ Puis ajoutons le pipe dans notre component :
 // Le reste du code ne change pas
 ```
 
-Nous avons ici donc ajouté notre classe `VolantPipe` dans l'attribut `pipe` du décorateur `@Component` puis nous avons appliqué le filtre `volant` a notre liste de superheros dans le `*ngFor`
+Nous avons ici donc ajouté notre classe `VolantPipe` dans l'attribut `pipes` du décorateur `@Component` puis nous avons appliqué le filtre `volant` a notre liste de superheros dans le `*ngFor`
 
 Il est aussi possible d'ajouter d'autres paramètres au pipes pour cela il aurait fallut l'ecrire de la sorte : `monObjet | mon-pipe: monParametre1: monParametre2: etc...` et changer la methode transform du Pipe en y ajoutant les arguments :
 
@@ -166,7 +170,7 @@ public transform (monObjet, monParametre1, monParametre2, ...etc) {
 }
 ```
 
-Dernier point sur les Pipes, il faut savoir qu'il se met à jour uniquement lorsque la référence de l'objet change.
+Dernier point sur les Pipes, il faut savoir qu'ils se mettent à jour uniquement lorsque la référence de l'objet change. Pour plus d'information sur le fonctionnement de JavaScript à ce niveau : https://snook.ca/archives/javascript/javascript_pass
 
 ## KATA !
 
@@ -176,10 +180,10 @@ Votre mission, si vous l'acceptez, sera de finir la Todolist qui a été dévelo
 
 1. Lorsque vous tapez quelque chose dans le champ de texte et que vous appuyez sur "ENTER" rien ne se passe ! Il va falloir donc :
     - Envoyer le formulaire
-    - Insérer la valeur du champ dans le tableau `todoList` du controller celui-ci est un tableau d'objets ayants pour attribut `completed: boolean`, `editMode: boolean` et `text: string`
+    - Insérer la valeur du champ dans le tableau `todoList` du controller celui-ci est un tableau de `TodoList` (Vous pouvez accéder à la définition de la classe dans le fichier todolist.class.ts)
     - Vider le champ
 2. Il faut pouvoir supprimer une ligne lorsqu'on clique sur le bouton "poubelle"
-3. Grace au Pipe `TodolistPipe` on doit pouvoir filtrer la liste grace aux boutons dans le footer
+3. Grace au Pipe `TodolistPipe` on doit pouvoir filtrer la liste grace aux boutons dans le footer. Il va donc falloir mettre à jour l'attribut `selectedFilter` avec les valeurs `all`, `actives` et `completed`. Vous pouvez utiliser l'attribut `click` sur un element HTML pour lui affecter une méthode
 4. On ne veut pas que le footer s'affiche quand on n'a pas de taches dans la liste
 
 ### Bonus
@@ -188,3 +192,5 @@ On veut aussi pouvoir modifier une ligne :
 
 - Afficher un champ de texte lorsqu'on double clique sur une tache (le nom de l'attribut sur la vue auquel affecter la méthode est : `dblclick`)
 - Faire disparaitre le champ une fois le champ modifié
+
+NB : Pour des raisons esthétiques, pensez à utiliser les exemple sur le template

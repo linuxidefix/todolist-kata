@@ -1,12 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core'
 
-import { ITodoInput } from '../../helpers'
+import { TodoList } from './todolist.class'
 
 @Pipe({
     name: 'todolist',
 })
 export class TodolistPipe implements PipeTransform {
-    public transform (input: ITodoInput[]): ITodoInput[] {
+    public transform (input: TodoList[]): TodoList[] {
         return input
     }
 }

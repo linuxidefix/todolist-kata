@@ -6,10 +6,11 @@
     </div>
     <div id="todolist">
         <ul id="todolist-content">
-            <li class="todo-input" *ngFor="let t of todoList; let i = index" [ngClass]="{'completed': t.completed}">
-                <nxt-checkbox [(value)]="t.completed"></nxt-checkbox>
+            <!-- Remplacez les 'todoTest' par votre code -->
+            <li class="todo-input" [ngClass]="{'completed': todoTest.completed}">
+                <nxt-checkbox [(value)]="todoTest.completed"></nxt-checkbox>
                 <div class="todo-content">
-                    <span class="todo-text">{{ t.text }}</span>
+                    <span class="todo-text">{{ todoTest.text }}</span>
                 </div>
                 <button type="button" class="destroy"><span class="fa fa-trash"></span></button>
             </li>
@@ -18,9 +19,9 @@
     <div id="todolist-footer">
         <div id="task-left">{{ '{$0} tâche(s) restante(s)' | translate: [ tasksLeft() ]}}</div>
         <div id="filters">
-            <button type="button" id="all-filter" [ngClass]="{'active': selectedFilter === 'all'}" (click)="filter('all')">{{ 'Toutes' | translate }}</button>
-            <button type="button" id="actives-filter" [ngClass]="{'active': selectedFilter === 'actives'}" (click)="filter('actives')">{{ 'Actives' | translate }}</button>
-            <button type="button" id="completed-filter" [ngClass]="{'active': selectedFilter === 'completed'}" (click)="filter('completed')">{{ 'Terminées' | translate }}</button>
+            <button type="button" id="all-filter" [ngClass]="{'active': selectedFilter === 'all'}">{{ 'Toutes' | translate }}</button>
+            <button type="button" id="actives-filter" [ngClass]="{'active': selectedFilter === 'actives'}">{{ 'Actives' | translate }}</button>
+            <button type="button" id="completed-filter" [ngClass]="{'active': selectedFilter === 'completed'}">{{ 'Terminées' | translate }}</button>
         </div>
     </div>
 </div>

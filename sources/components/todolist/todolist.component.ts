@@ -1,8 +1,8 @@
 import { Component, Inject, ViewEncapsulation } from '@angular/core'
 
 import { AppActions } from '../../app'
-import { ITodoInput } from '../../helpers'
 import { NxtCheckboxComponent, NxtFormService, NxtInputComponent } from '../../modules/nxt-form'
+import { TodoList } from './todolist.class'
 
 @Component({
     directives: [ NxtCheckboxComponent, NxtInputComponent ],
@@ -17,8 +17,11 @@ import { NxtCheckboxComponent, NxtFormService, NxtInputComponent } from '../../m
 
 export class TodolistComponent {
     public todolistInput: string
-    public todoList: ITodoInput[]
+    public todoList: TodoList[]
     public selectedFilter: string
+
+    // A supprimer
+        public todoTest: TodoList
 
     // Redux
     private appStore
@@ -27,6 +30,11 @@ export class TodolistComponent {
         this.todolistInput = ''
         this.todoList = []
         this.selectedFilter = 'all'
+
+        // A supprimer
+            this.todoTest = new TodoList()
+            this.todoTest.completed = false
+            this.todoTest.text = 'Ceci est une tâche de test :)'
 
         this.appStore = appStore
     }
@@ -41,13 +49,5 @@ export class TodolistComponent {
 
     public tasksLeft () {
         return this.todoList.filter(t => !t.completed).length
-    }
-
-    public filter (filter: string) {
-        this.selectedFilter = filter
-    }
-
-    public editContent (index) {
-        this.todoList[index].editMode = true
     }
 }
