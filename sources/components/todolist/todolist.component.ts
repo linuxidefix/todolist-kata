@@ -47,7 +47,10 @@ export class TodolistComponent {
     }
 
     public destroy (index: number) {
-        this.todoList.splice(index, 1)
+        this.todoList = [
+            ...this.todoList.slice(0, index),
+            ...this.todoList.slice(index + 1),
+        ]
     }
 
     public tasksLeft () {
