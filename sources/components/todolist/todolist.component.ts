@@ -38,14 +38,9 @@ export class TodolistComponent {
     }
 
     public onSubmit () {
-        let todo = new TodoList()
-        todo.completed = false
-        todo.editMode = false
-        todo.text = this.todolistInput
-
         this.todoList = [
             ...this.todoList,
-            todo,
+            new TodoList(this.todolistInput, false, false),
         ]
 
         this.todolistInput = ''
