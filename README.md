@@ -175,9 +175,9 @@ Mettons en pratique ce que nous avons vu.
 Votre mission, si vous l'acceptez, sera de finir la Todolist qui a été développée. Actuellement elle ne fait pratiquement rien. tout va se passer dans le dossier `sources/components/todolist` :
 
 1. Lorsque vous tapez quelque chose dans le champ de texte et que vous appuyez sur "ENTER" rien ne se passe ! Il va falloir donc :
-  - Envoyer le formulaire
-  - Insérer la valeur du champ dans le tableau `todoList` du controller celui-ci est un tableau d'objets ayants pour attribut `completed: boolean`, `editMode: boolean` et `text: string`
-  - Vider le champ
+    - Envoyer le formulaire
+    - Insérer la valeur du champ dans le tableau `todoList` du controller celui-ci est un tableau d'objets ayants pour attribut `completed: boolean`, `editMode: boolean` et `text: string`
+    - Vider le champ
 2. Il faut pouvoir supprimer une ligne lorsqu'on clique sur le bouton "poubelle"
 3. Grace au Pipe `TodolistPipe` on doit pouvoir filtrer la liste grace aux boutons dans le footer
 4. On ne veut pas que le footer s'affiche quand on n'a pas de taches dans la liste
@@ -185,5 +185,5 @@ Votre mission, si vous l'acceptez, sera de finir la Todolist qui a été dévelo
 ### Bonus
 
 On veut aussi pouvoir modifier une ligne :
-  - Afficher un champ de texte lorsqu'on double clique sur une tache (le nom de l'attribut sur la vue auquel affecter la méthode est : `dblclick`)
-  - Faire disparaitre le champ une fois le champ modifié
+    - Afficher un champ de texte lorsqu'on double clique sur une tache (le nom de l'attribut sur la vue auquel affecter la méthode est : `dblclick`)
+    - Faire disparaitre le champ une fois le champ modifié
