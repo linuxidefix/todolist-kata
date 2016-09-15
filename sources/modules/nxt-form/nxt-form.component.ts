@@ -45,7 +45,9 @@ export abstract class NxtFormComponent extends BaseComponent {
     }
 
     set value (value: any) {
-        this._value = value
+        if (this._value !== value) {
+            this._value = value
+        }
     }
 
     get value () {
@@ -61,7 +63,7 @@ export abstract class NxtFormComponent extends BaseComponent {
     }
 
     public onChange (value, touched: boolean = true) {
-        this.value = value
+        this._value = value
         this.valueChange.emit(value)
 
         this.updateState(touched)
