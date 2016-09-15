@@ -194,5 +194,6 @@ On veut aussi pouvoir modifier une ligne :
 
 - Afficher un champ de texte lorsqu'on double clique sur une tache (le nom de l'attribut sur la vue auquel affecter la méthode est : `dblclick`)
 - Faire disparaitre le champ une fois le champ modifié
+- Si le champ est vide, on supprime la ligne
 
 NB : Pour des raisons esthétiques, pensez à utiliser les exemple sur le template
