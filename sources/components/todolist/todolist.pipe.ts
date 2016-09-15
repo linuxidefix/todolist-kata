@@ -1,12 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core'
 
-import { ITodoInput } from '../../helpers'
+import { TodoList } from './todolist.class'
 
 @Pipe({
     name: 'todolist',
 })
 export class TodolistPipe implements PipeTransform {
-    public transform (input: ITodoInput[], selectedFilter: string = 'all'): ITodoInput[] {
+    public transform (input: TodoList[], selectedFilter: string = 'all'): TodoList[] {
         return input.filter(t => {
             if (selectedFilter === 'all') {
                 return true

@@ -1,7 +1,7 @@
 import { Component, Inject, ViewEncapsulation } from '@angular/core'
 
 import { AppActions } from '../../app'
-import { ITodoInput } from '../../helpers'
+import { TodoList } from './todolist.class'
 import { NxtCheckboxComponent, NxtFormService, NxtInputComponent } from '../../modules/nxt-form'
 import { TodolistPipe } from './todolist.pipe'
 
@@ -19,7 +19,7 @@ import { TodolistPipe } from './todolist.pipe'
 
 export class TodolistComponent {
     public todolistInput: string
-    public todoList: ITodoInput[]
+    public todoList: TodoList[]
     public selectedFilter: string
 
     // Redux
@@ -38,13 +38,14 @@ export class TodolistComponent {
     }
 
     public onSubmit () {
+        let todo = new TodoList()
+        todo.completed = false
+        todo.editMode = false
+        todo.text = this.todolistInput
+
         this.todoList = [
             ...this.todoList,
-            {
-                completed: false,
-                editMode: false,
-                text: this.todolistInput,
-            }
+            todo,
         ]
 
         this.todolistInput = ''
