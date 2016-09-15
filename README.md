@@ -185,5 +185,6 @@ Votre mission, si vous l'acceptez, sera de finir la Todolist qui a été dévelo
 ### Bonus
 
 On veut aussi pouvoir modifier une ligne :
+
 - Afficher un champ de texte lorsqu'on double clique sur une tache (le nom de l'attribut sur la vue auquel affecter la méthode est : `dblclick`)
 - Faire disparaitre le champ une fois le champ modifié
