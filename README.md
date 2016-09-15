@@ -111,7 +111,7 @@ class MaListeComponent {
             new Hero('Flash', 'Barry ALLEN', false),
             new Hero('Superman', 'Clark KENT', true),
             new Hero('Captain America', 'Steve ROGERS', false),
-            new Hero('Hulk', 'David BANNER', false),
+            new Hero('Hulk', 'Bruce BANNER', false),
         ]
     }
 }
