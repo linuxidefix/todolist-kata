@@ -17,7 +17,7 @@ import { ComponentComplement } from '../../../base.component'
         <div class="nxt-textarea-container" [ngClass]="{'error': !valid && (touched || formSent)}">
             <label>
                 <div class="label" *ngIf="label != ''">{{label}} <span class="nxt-input-required" *ngIf="required">*</span> :</div>
-                <textarea name="{{name}}" [placeholder]="placeholder" (change)="initChange($event)" (keyup)="initChange($event)" [value]="value" [required]="required" [disabled]="disabled"></textarea>
+                <textarea name="{{name}}" [placeholder]="placeholder" [ngModel]="value" (ngModelChange)="initChange($event)" [required]="required" [disabled]="disabled"></textarea>
             </label>
 
             <div class="error-msg" *ngIf="!valid && (touched || formSent)">{{errorMsg}}</div>
@@ -41,7 +41,9 @@ export class NxtTextareaComponent extends NxtFormComponent {
     }
 
     public initChange (event) {
-        this.onChange(event.path[0].value)
+        if (!this.disabled) {
+            this.onChange(event)
+        }
     }
 
     public reset () {
