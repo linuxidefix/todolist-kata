@@ -38,12 +38,14 @@ export class TodolistComponent {
     }
 
     public onSubmit () {
-        this.todoList = [
-            ...this.todoList,
-            new TodoList(this.todolistInput, false, false),
-        ]
+        if (this.todolistInput !== '') {
+            this.todoList = [
+                ...this.todoList,
+                new TodoList(this.todolistInput, false, false),
+            ]
 
-        this.todolistInput = ''
+            this.todolistInput = ''
+        }
     }
 
     public destroy (index: number) {
