@@ -38,7 +38,7 @@ export class TodolistComponent {
     }
 
     public onSubmit () {
-        if (this.todolistInput !== '') {
+        if (this.todolistInput.trim() !== '') {
             this.todoList = [
                 ...this.todoList,
                 new TodoList(this.todolistInput, false, false),
