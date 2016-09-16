@@ -184,8 +184,8 @@ Votre mission, si vous l'acceptez, sera de finir la Todolist qui a été dévelo
     - Envoyer le formulaire
     - Insérer la valeur du champ dans le tableau `todoList` du controller celui-ci est un tableau de `TodoList` (Vous pouvez accéder à la définition de la classe dans le fichier todolist.class.ts)
     - Vider le champ
-2. Il faut pouvoir supprimer une ligne lorsqu'on clique sur le bouton "poubelle"
-3. Grace au Pipe `TodolistPipe` on doit pouvoir filtrer la liste grace aux boutons dans le footer. Il va donc falloir mettre à jour l'attribut `selectedFilter` avec les valeurs `all`, `actives` et `completed`. Vous pouvez utiliser l'attribut `click` sur un element HTML pour lui affecter une méthode
+2. Il faut pouvoir supprimer une ligne lorsqu'on clique sur le bouton "poubelle". Vous pouvez utiliser l'attribut `click` sur un element HTML pour lui affecter une méthode
+3. Grace au Pipe `TodolistPipe` on doit pouvoir filtrer la liste grace aux boutons dans le footer. Il va donc falloir mettre à jour l'attribut `selectedFilter` avec les valeurs `all`, `actives` et `completed`.
 4. On ne veut pas que le footer s'affiche quand on n'a pas de taches dans la liste
 
 ### Bonus
