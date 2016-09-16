@@ -7,7 +7,7 @@
     <div id="todolist">
         <ul id="todolist-content">
             <li class="todo-input" *ngFor="let t of (todoList | todolist: selectedFilter); let i = index" [ngClass]="{'completed': t.completed}">
-                <nxt-checkbox [(value)]="t.completed"></nxt-checkbox>
+                <nxt-checkbox [(value)]="t.completed" (onUpdate)="onCheck(i)"></nxt-checkbox>
                 <div class="todo-content" (dblclick)="editContent(i)">
                     <span class="todo-text" *ngIf="!t.editMode">{{ t.text }}</span>
                     <form (ngSubmit)="onEdit(i)" novalidate *ngIf="t.editMode">

@@ -72,4 +72,8 @@ export class TodolistComponent {
             this.todoList[index].editMode = false
         }
     }
+
+    public onCheck (index) {
+        this.todoList = [...this.todoList]
+    }
 }
