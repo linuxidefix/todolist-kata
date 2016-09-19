@@ -1,8 +1,8 @@
 import { Component, Inject, ViewEncapsulation } from '@angular/core'
 
 import { AppActions } from '../../app'
-import { TodoList } from './todolist.class'
 import { NxtCheckboxComponent, NxtFormService, NxtInputComponent } from '../../modules/nxt-form'
+import { TodoList } from './todolist.class'
 import { TodolistPipe } from './todolist.pipe'
 
 @Component({
@@ -48,11 +48,8 @@ export class TodolistComponent {
         }
     }
 
-    public destroy (index: number) {
-        this.todoList = [
-            ...this.todoList.slice(0, index),
-            ...this.todoList.slice(index + 1),
-        ]
+    public destroy (todo: TodoList) {
+        this.todoList = [...this.todoList.filter(t => t !== todo)]
     }
 
     public tasksLeft () {
@@ -68,8 +65,8 @@ export class TodolistComponent {
     }
 
     public onEdit (index) {
-        if (this.todoList[index].text === '') {
-            this.destroy(index)
+        if (this.todoList[index].text.trim() === '') {
+            this.destroy(this.todoList[index])
         } else {
             this.todoList[index].editMode = false
         }
