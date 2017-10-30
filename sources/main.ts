@@ -1,15 +1,18 @@
-import '../node_modules/core-js/client/shim.min.js'
-import '../node_modules/reflect-metadata/Reflect.js'
-import '../node_modules/zone.js/dist/zone.js'
+import 'core-js'
+import 'zone.js/dist/zone'
 
 /**
  * Production mode
  */
 import { enableProdMode } from '@angular/core'
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'maintenance') {
     enableProdMode()
 }
 
 import { Bootstrap } from './app'
 
 Bootstrap()
+
+if (module['hot']) {
+    module['hot'].accept()
+}

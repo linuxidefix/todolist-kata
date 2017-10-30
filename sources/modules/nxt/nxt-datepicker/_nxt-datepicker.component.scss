@@ -1,0 +1,165 @@
+@import '../../../sass/variables';
+
+label {
+    padding-bottom: 0px;
+}
+
+button {
+    border: none;
+}
+
+.wrapper {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    border: 1px solid black;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+
+    .hidden {
+        display: none;
+    }
+
+    .input-date {
+        font-size: 11px;
+        cursor: pointer;
+
+        .placeholder {
+            color: #aaa;
+            margin-top: -3px;
+            margin-left: 7px;
+        }
+
+        button {
+            margin-top: -13px;
+        }
+    }
+
+    .calendar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 100;
+
+        .calendar-container {
+            top: 200px;
+            position: relative;
+            width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+
+            @media screen and (max-width: $phone-max) {
+                width: 95%;
+                top: 200px;
+            }
+
+            .header {
+                display: flex;
+
+                .year-month {
+                    flex: 1;
+                    position: relative;
+
+                    &.left-right {
+                        flex: 0;
+
+                        button {
+                            padding: 0 10px;
+                        }
+                    }
+
+                    .title {
+                        background-color: black;
+                        color: white;
+                        width: 100%;
+                        height: 30px;
+                        line-height: 30px;
+                        vertical-align: middle;
+                        text-align: center;
+                        padding: 0;
+                    }
+                    .date-list-container {
+                        position: absolute;
+                        top: -150px;
+                        width: 100%;
+                        background-color: black;
+                        text-align: right;
+                        z-index: 1;
+
+                        .close {
+                            background-color: black;
+                            color: white;
+                        }
+
+                        .date-list {
+                            display: block;
+                            width: 100%;
+                            max-height: 300px;
+                            overflow: auto;
+                            list-style: none;
+                            padding: 0;
+                            margin: 0;
+
+                            li {
+                                button {
+                                    width: 100%;
+                                    color: white;
+                                    text-align: center;
+                                    background-color: black;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .body {
+                background-color: white;
+
+                thead th {
+                    font-weight: bold;
+                    border: none;
+                }
+
+                tbody {
+                    tr {
+                        td {
+                            border: none;
+                            padding: 0;
+
+                            .btn {
+                                width: 100%;
+                                padding: 10px 0;
+                                text-align: center;
+                                background-color: white;
+                            }
+
+                            &.prev .btn, &.next .btn {
+                                opacity: 0.5;
+                            }
+
+                            &.out-of-limit .btn {
+                                opacity: 0.5;
+                                cursor: default;
+                            }
+
+                            &.today .btn {
+                                font-weight: bold;
+                            }
+
+                            &.selected .btn {
+                                border: 1px black solid;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

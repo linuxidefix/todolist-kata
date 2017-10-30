@@ -1,15 +1,11 @@
 import { Component, Inject, ViewEncapsulation } from '@angular/core'
 
 import { AppActions } from '../../app'
-import { NxtCheckboxComponent, NxtFormService, NxtInputComponent } from '../../modules/nxt-form'
 import { TodoList } from './todolist.class'
 import { TodolistPipe } from './todolist.pipe'
 
 @Component({
-    directives: [ NxtCheckboxComponent, NxtInputComponent ],
     encapsulation: ViewEncapsulation.None,
-    pipes: [ TodolistPipe ],
-    providers: [ NxtFormService ],
     selector: 'todolist',
     styles: [
         require('./_todolist.component.scss'),
@@ -18,23 +14,17 @@ import { TodolistPipe } from './todolist.pipe'
 })
 
 export class TodolistComponent {
-    public todolistInput: string
-    public todoList: TodoList[]
-    public selectedFilter: string
+    public todolistInput: string = ''
+    public todoList: TodoList[] = []
+    public selectedFilter: string = 'all'
 
-    // Redux
-    private appStore
-
-    constructor (@Inject('AppStore') appStore) {
-        this.todolistInput = ''
-        this.todoList = []
-        this.selectedFilter = 'all'
-
-        this.appStore = appStore
-    }
+    constructor (
+        @Inject('AppStore') private appStore,
+    ) {}
 
     public ngOnInit () {
         this.appStore.dispatch(AppActions.setLoading(false))
+        console.log('2')
     }
 
     public onSubmit () {

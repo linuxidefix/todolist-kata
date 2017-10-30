@@ -46,7 +46,7 @@ export class Url {
     public getUrl (): string {
         let queryString: string = ''
 
-        for (let prop in this.queryString) {
+        for (const prop in this.queryString) {
             if (this.queryString.hasOwnProperty(prop)) {
                 if (queryString === '') {
                     queryString += '?'

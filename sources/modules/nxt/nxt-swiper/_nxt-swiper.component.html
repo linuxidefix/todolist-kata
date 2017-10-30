@@ -1,0 +1,18 @@
+ <div class="nxt-swiper-content">
+    <div class="nxt-swiper-container">
+        <div class="nxt-swiper-wrapper">
+            <ng-content></ng-content>
+        </div>
+    </div>
+
+    <button type="button" class="nxt-swiper-prevNext nxt-swiper-prev" *ngIf="elemsArray.length > 1 && showPrevNext" (click)="prev()"></button>
+    <button type="button" class="nxt-swiper-prevNext nxt-swiper-next" *ngIf="elemsArray.length > 1 && showPrevNext" (click)="next()"></button>
+
+    <ul *ngIf="elemsArray.length > 1 && showBullets" class="nxt-swiper-bullets">
+        <li
+            class="nxt-swiper-bullet"
+            [ngClass]="{'active': (k + 1) == _currentPos}"
+            (click)="goto(k + 1)"
+            *ngFor="let e of elemsArray; let k = index"></li>
+    </ul>
+</div>

@@ -6,6 +6,7 @@ import { TodoList } from './todolist.class'
     name: 'todolist',
 })
 export class TodolistPipe implements PipeTransform {
+
     public transform (input: TodoList[], selectedFilter: string = 'all'): TodoList[] {
         return input.filter(t => {
             if (selectedFilter === 'all') {
@@ -17,4 +18,5 @@ export class TodolistPipe implements PipeTransform {
             }
         })
     }
+
 }

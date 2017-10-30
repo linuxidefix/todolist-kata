@@ -1,14 +1,17 @@
 var path = require('path')
-var config = require('./webpack.base')
+var webpackConfig = require('./webpack.base')
 var webpack = require('webpack')
+var OpenBrowserPlugin = require('open-browser-webpack-plugin')
+var config = require('./config')
 
-config.devtool = 'source-map'
+webpackConfig.devtool = 'source-map'
 
-config.entry.app.unshift('../build/dev-client.js')
+webpackConfig.entry.app.unshift('../build/dev-client.js')
 
-config.plugins = config.plugins.concat([
+webpackConfig.plugins = webpackConfig.plugins.concat([
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin(),
+    new OpenBrowserPlugin({ url: 'http://localhost:' + config.port }),
 ])
 
-module.exports = config
+module.exports = webpackConfig

@@ -1,17 +1,17 @@
-# TODOLIST en Angular 2
+# TODOLIST en Angular 4
 
 ## Installation de l'environnement de travail
 
-Avant toute chose il faut installer NodeJS (+ NPM) version 6 minimum : https://nodejs.org/en/
+Avant toute chose il faut installer NodeJS (+ NPM) version 8 minimum : https://nodejs.org/en/
 
 Ensuite rendez-vous à la racine du projet avec un terminal puis entrez `npm install`. NPM va alors installer toutes les dépendences nécessaires au bon fonctionnement de notre application.
-Une fois terminé lancez le serveur local en entrant `npm run dev` (toujours dans votre terminal) puis rendez-vous sur http://localhost:8080
+Une fois terminé lancez le serveur local en entrant `npm start` (toujours dans votre terminal) puis rendez-vous sur http://localhost:8080 (normalement votre navigateur a du s'ouvrir automatiquement)
 
 une fois l'exercice terminé vous pouvez accéder à la solution en faisant un checkout sur la branche `solution`
 
 ## Qu'est-ce qu'une Todolist ?
 
-Une Todolist est tout simplement un outil permettant de noter une liste de tâches à faire. Dans ce KATA nous allons en développer un en Angular 2.
+Une Todolist est tout simplement un outil permettant de noter une liste de tâches à faire. Dans ce KATA nous allons en développer un en Angular 4.
 Dans cette Todolist nous devons pouvoir :
 
 - Ajouter une tâches
@@ -20,13 +20,13 @@ Dans cette Todolist nous devons pouvoir :
 - Changer leur statut en "terminée"
 - Afficher la liste des tâches en ayant la possibilité de filtrer (Toutes, Actives, Terminées)
 
-## Angular 2
+## Angular 4
 
-Angular 2 est la dernière version du framework JavaScript développé par Google. Il faut savoir que cette dernière version n'à plus rien à voir avec les anciennes.
+Angular 4 est la dernière version du framework JavaScript développé par Google. Il faut savoir que cette dernière version n'à plus rien à voir avec les versions 1.x.
 
 ### Component
 
-Dans Angular 2 on fonctionne principalement avec des Components (un composant HTML auquel on y affecte un style et un comportement spécifique). Ceux-ci sont composé d'au minimum :
+Dans Angular 4 on fonctionne principalement avec des Components (un composant HTML auquel on y affecte un style et un comportement spécifique). Ceux-ci sont composé d'au minimum :
 
 - un template -> Une vue sur laquelle on mettra notre code HTML
 - un selector -> Nom de l'element HTML qui contiendra le template
@@ -58,7 +58,7 @@ class MonFormulaireComponent {
 }
 ```
 
-Ici comme on peut le voir Il y a dans le Template des attributs inhabituels. Prenons `(ngSubmit)="onSubmit()"`, dans Angular 2 lorsqu'on veut créer un évènement de la vue au controller on utilise des attributs entre parenthèses "()" et on lui affecte la méthode du controller que l'on souhaite invoquer
+Ici comme on peut le voir Il y a dans le Template des attributs inhabituels. Prenons `(ngSubmit)="onSubmit()"`, dans Angular 4 lorsqu'on veut créer un évènement de la vue au controller on utilise des attributs entre parenthèses "()" et on lui affecte la méthode du controller que l'on souhaite invoquer
 
 A l'inverse lorsqu'on souhaite envoyer une valeur du controller vers la vue on utilise des crochets "[]" et lui affecte la valeur souhaitée
 
@@ -91,7 +91,7 @@ Notez les doubles brackets `{{}}`, cette syntaxe est utilisée pour afficher le 
 
 ### *ngFor
 
-Admettons que nous ayons une liste de superhéros dans un tableau et que nous souhaitions l'afficher dans une vue, l'attribut `*ngFor` d'Angular 2 nous permet d'itérer un tableau dans une vue :
+Admettons que nous ayons une liste de superhéros dans un tableau et que nous souhaitions l'afficher dans une vue, l'attribut `*ngFor` d'Angular 4 nous permet d'itérer un tableau dans une vue :
 
 ```javascript
 @Component({
@@ -133,7 +133,7 @@ Notez dans le `*ngFor` la présence de `let i = index`. Cela nous permet tout si
 
 ### Pipes
 
-Les pipes dans Angular 2 permettent de retourner une valeur modifiée par rapport à des paramettres qu'on lui fournit. Par exemple transformer une chaine de caractères en la mettant en majuscule ou de filtrer un tableau...
+Les pipes dans Angular 4 permettent de retourner une valeur modifiée par rapport à des paramettres qu'on lui fournit. Par exemple transformer une chaine de caractères en la mettant en majuscule ou de filtrer un tableau...
 Reprenons notre exemple de superhéros, développons un pipe nous permettant de ne retourner que ceux qui peuvent voler :
 
 ```javascript

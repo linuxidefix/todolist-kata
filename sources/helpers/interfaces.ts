@@ -1,4 +1,4 @@
-export interface IPosition {
-    x: number
-    y: number
+export interface ICoordinates {
+    lat: number
+    lng: number
 }

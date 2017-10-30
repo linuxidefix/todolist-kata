@@ -1,0 +1,10 @@
+<div class="nxt-tab-container">
+    <ul class="nxt-tabs" [ngStyle]="tabsStyle">
+        <li class="nxt-tab-element" (click)="select(t)" *ngFor="let t of nxtTabsComponent" [title]="t.tip ? t.tip : t.title" [ngStyle]="t.selected ? selectedStyle : notSelectedStyle" [ngClass]="{ 'selected': t.selected }">
+            <i *ngIf="t.icon !== ''" [class]="t.icon"></i>
+            {{ t.title | translate }}
+        </li>
+    </ul>
+
+    <ng-content></ng-content>
+</div>

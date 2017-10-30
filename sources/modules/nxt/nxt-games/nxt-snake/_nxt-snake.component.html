@@ -1,0 +1,21 @@
+<div class="nxt-snake-container">
+    <div class="nxt-snake-score text-right">
+        {{ score }}
+    </div>
+
+    <div class="nxt-snake-content">
+        <div class="nxt-snake-map">
+            <div class="nxt-snake-line" *ngFor="let line of map; let i = index">
+                <div class="nxt-snake-cell" *ngFor="let cell of line; let j = index" [ngClass]="cell.type"></div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="gameIsOver" class="nxt-snake-game-over">
+        <p class="text-center">{{ 'Game over' | translate }}</p>
+        <p class="text-center">{{ 'Score: ' | translate }} {{ score }}</p>
+        <p class="text-center">
+            <button type="button" (click)="startGame()">{{ 'Retry' | translate }}</button>
+        </p>
+    </div>
+</div>
