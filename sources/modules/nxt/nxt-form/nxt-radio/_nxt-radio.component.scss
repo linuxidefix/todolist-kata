@@ -1,0 +1,45 @@
+.nxt-radio-container {
+    margin-top: 15px;
+    
+    .nxt-radio-content {
+        margin-top: 10px;
+        display: flex;
+        
+        .nxt-radio-item-container {
+            cursor: pointer;
+            display: flex;
+            padding: 5px 0px;
+
+            .nxt-radio-item-button {
+                width: 20px;
+                height: 20px;
+                border: black 1px solid;
+                border-radius: 50%;
+                background-color: white;
+            }
+
+            &.selected {
+                .nxt-radio-item-button {
+                    background-color: #0051a8;
+                }
+            }
+
+            .label {
+                padding: 0px 5px;
+                margin: 0px 10px 0px 0px;
+                color: #05427f;
+                font-weight: bold;
+            }
+        }
+    }
+
+    &.error {
+        .nxt-radio-content {
+            .nxt-radio-item-container {
+                .nxt-radio-item-button {
+                    border-color: red;
+                }
+            }
+        }
+    }
+}

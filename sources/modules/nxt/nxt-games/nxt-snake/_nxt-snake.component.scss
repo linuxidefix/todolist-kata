@@ -1,0 +1,45 @@
+nxt-snake {
+    .nxt-snake-container {
+        position: relative;
+        background-color: #FFF;
+
+        .nxt-snake-content {
+            width: 500px;
+            height: 500px;
+
+            .nxt-snake-map {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+
+                .nxt-snake-line {
+                    display: flex;
+                    flex: 1;
+
+                    .nxt-snake-cell {
+                        flex: 1;
+
+                        &.snake {
+                            background-color: #000;
+                        }
+
+                        &.apple {
+                            background-color: #555;
+                        }
+                    }
+                }
+            }
+        }
+
+        .nxt-snake-game-over {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #000;
+            color: #FFF;
+            padding: 10px;
+        }
+    }
+}

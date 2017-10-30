@@ -1,0 +1,78 @@
+.nxt-swiper-content {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+
+    .nxt-swiper-container {
+        position: relative;
+        overflow: hidden;
+
+        .nxt-swiper-wrapper {
+            display: flex;
+            transition-duration: 0s;
+
+            nxt-swip-elem {
+                flex: 0 0 100%;
+                max-width: 100%;
+
+                .nxt-swip-elem {
+                    position: relative;
+                    overflow: hidden;
+                    padding: 0 5px;
+                    width: 100%;
+                    max-width: 100%;
+
+                    img {
+                        max-width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .nxt-swiper-prevNext {
+        display: block;
+        position: absolute;
+        top:50%;
+        margin-top: -20px;
+        padding: 10px;
+        border-top: 3px solid black;
+        border-right: 3px solid black;
+        border-bottom: none;
+        border-left: none;
+        background: none;
+        outline: none;
+        width: auto;
+
+        &.nxt-swiper-prev {
+            left: 10px;
+            transform: rotate(-135deg)
+        }
+
+        &.nxt-swiper-next {
+            right: 10px;
+            transform: rotate(45deg)
+        }
+    }
+
+    .nxt-swiper-bullets {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+
+        .nxt-swiper-bullet {
+            display: inline-block;
+            padding: 3px;
+            border-radius: 50%;
+            border: 1px solid black;
+            cursor: pointer;
+            margin: 3px;
+
+            &.active {
+                background-color: black;
+            }
+        }
+    }
+}

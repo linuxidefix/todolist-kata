@@ -5,3 +5,5 @@
 /**/*.log
 /prod/
 /.idea
+npm-debug.log.*
+/.awcache/

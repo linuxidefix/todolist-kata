@@ -1,0 +1,104 @@
+@import '../../../../sass/variables';
+
+$transitionDuration: 0.2s;
+
+nxt-switch {
+    .nxt-switch-container {
+        padding: 5px;
+
+        &.error {
+            label {
+                .nxt-switch-slider {
+                    border: 1px solid red;
+                }
+            }
+        }
+
+        label {
+            cursor: pointer;
+            display: flex;
+            
+            .nxt-switch-slider {
+                padding: 3px;
+                width: 36px;
+                background-color: gray;
+                transition-duration: $transitionDuration;
+
+                &:before {
+                    content: '';
+                    display: block;
+                    height: 15px;
+                    width: 15px;
+                    background-color: white;
+                    transition-duration: $transitionDuration;
+                }
+
+                &.rounded {
+                    border-radius: 15px;
+
+                    &:before {
+                        border-radius: 50%;
+                    }
+                }
+
+                &.chevron {
+                    border-style: solid;
+                    border-width: 4px 4px 0 0;
+                    content: '';
+                    display: inline-block;
+                    height: 12px;
+                    position: relative;
+                    top: 0;
+                    transform: rotate(135deg);
+                    vertical-align: top;
+                    width: 12px;
+                    background-color: white;
+                    color: gray;
+                    margin: 8px auto 12px auto;
+
+                    &:before {
+                        display: none;
+                    }
+
+                    &.active {
+                        border-style: solid;
+                        border-width: 4px 4px 0 0;
+                        content: '';
+                        display: inline-block;
+                        height: 12px;
+                        position: relative;
+                        top: 4px;
+                        transform: rotate(-45deg);
+                        vertical-align: top;
+                        width: 12px;
+                        background-color: white;
+                        color: gray;
+                        margin: 12px auto 8px auto;
+                    }
+                }
+
+                &.active {
+                    background-color: $primary;
+
+                    &:before {
+                        margin-left: 15px;
+                    }
+                }
+            }
+
+            .label {
+                padding-left: 8px;
+            }
+        }
+
+        &.disabled {
+            label {
+                cursor: no-drop;
+
+                .nxt-switch-slider {
+                    background-color: lightgray;
+                }
+            }
+        }
+    }
+}

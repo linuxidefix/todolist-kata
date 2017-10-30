@@ -1,0 +1,15 @@
+nxt-chart {
+    .d3-stats {
+        width: 300px;
+        height: 300px;
+    }
+    &[type='progressbar'] .d3-stats {
+        height: 40px;
+    }
+}
+
+nxt-tooltip {
+    .nxt-chart-tooltip-percentage {
+        font-weight: bold;
+    }
+}

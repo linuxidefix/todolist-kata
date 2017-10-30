@@ -1,0 +1,65 @@
+nxt-tooltip {
+    display: block;
+    position: absolute;
+    color: white;
+    top: 0px;
+    left: 0px;
+    z-index: 9999;
+    
+
+    .nxt-tooltip-container {
+        padding: 5px;
+        background-color: #555;
+        border: 1px solid #555;
+        max-width: 300px;
+    }
+
+    // triangle bottom (if tooltip top)
+    .nxt-tooltip-container.top::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 8px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+    }
+
+    // triangle top (if tooltip bottom)
+    .nxt-tooltip-container.bottom::after {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 8px;
+        border-style: solid;
+        border-color: transparent transparent #555 transparent;
+    }
+
+    // triangle left (if tooltip right)
+    .nxt-tooltip-container.right::after {
+        content: "";
+        position: absolute;
+        right: 100%;
+        bottom: 50%;
+        margin-bottom: -7px;
+        border-width: 8px;
+        border-style: solid;
+        border-color: transparent #555 transparent transparent;
+    }
+
+    // triangle right (if tooltip left)
+    .nxt-tooltip-container.left::after {
+        content: "";
+        position: absolute;
+        left: 100%;
+        bottom: 50%;
+        margin-bottom: -7px;
+        border-width: 8px;
+        border-style: solid;
+        border-color: transparent transparent transparent #555;
+    }
+}
+    

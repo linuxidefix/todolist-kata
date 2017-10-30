@@ -1,0 +1,21 @@
+.nxt-tab-container {
+    width: 100%;
+
+    .nxt-tabs {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: flex;
+
+        .nxt-tab-element {
+            display: block;
+            padding: 5px;
+            margin: 20px;
+            cursor: pointer;
+
+            &.selected {
+                border-bottom: 1px solid black;
+            }
+        }
+    }
+}

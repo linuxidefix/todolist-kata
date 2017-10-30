@@ -1,9 +1,14 @@
 export const appConfig = {
-    _langs: [
-        {
-            lang: 'Français',
-            locale: 'fr_FR',
-        },
-    ],
-    defaultLocation: 'fr_FR',
+    api: {
+        domain: 'nxt.com',
+        oauthPath: 'oauth',
+        protocol: 'http',
+    },
+    ga: {
+        key: 'UA-XXXXXXXX-2',
+    },
+    oauth: {
+        clientId: 'xxxxx',
+        clientSecret: 'xxxxx',
+    },
 }

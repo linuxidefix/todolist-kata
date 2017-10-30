@@ -1,0 +1,18 @@
+@import '../sass/variables';
+
+.container {
+    position: relative;
+    margin: 50px auto;
+
+    @media screen and (min-width: $desktop-xs-min) {
+        width: 1024px;
+    }
+
+    @media screen and (max-width: $tablet-max) {
+        width: 95%;
+    }
+
+    .maintenance-img {
+        max-width: 100%;
+    }
+}

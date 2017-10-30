@@ -1,15 +1,29 @@
-import { provideRouter } from '@angular/router'
+import { ModuleWithProviders } from '@angular/core'
+import { RouterModule, Routes } from '@angular/router'
 
-import { TodolistComponent } from '../components/todolist/todolist.component'
+/// ROUTE IMPORTATION START
+import {
+    TODOLIST_ROUTE_PROVIDERS,
+    todolistRoute,
+} from '../components/todolist/todolist.routes'
 
-const routes = [
+/// ROUTE IMPORTATION END
+
+/// APP ROUTER EXPORTATION START
+export const APP_ROUTER_PROVIDER: any[] = [
+    TODOLIST_ROUTE_PROVIDERS,
+]
+/// APP ROUTER EXPORTATION END
+
+/// ROUTES DEFINITION START
+const routes: Routes = [
     {
-        component: TodolistComponent,
         path: '',
-        useAsDefault: true,
+        pathMatch: 'full',
+        redirectTo: '/todolist',
     },
+    todolistRoute,
 ]
+/// ROUTES DEFINITION END
 
-export const APP_ROUTER_PROVIDERS = [
-    provideRouter(routes),
-]
+export const routing: ModuleWithProviders = RouterModule.forRoot(routes)

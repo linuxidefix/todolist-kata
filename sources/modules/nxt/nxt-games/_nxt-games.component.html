@@ -1,0 +1,18 @@
+<div class="nxt-games-container">
+    <div class="nxt-games-content">
+        <div class="nxt-games-header text-right">
+            <button *ngIf="gameLaunched" type="button" class="nxt-game-close fa fa-chevron-left" (click)="backToMenu()"></button>
+            <button type="button" class="nxt-game-close fa fa-times" (click)="close()"></button>
+        </div>
+
+        <div class="nxt-games-menu" *ngIf="!gameLaunched">
+            <ul class="nxt-games-list">
+                <li class="nxt-game-item" *ngFor="let game of gamesList">
+                    <button type="button" (click)="launchGame(game)">{{ game.name }}</button>
+                </li>
+            </ul>
+        </div>
+
+        <nxt-games-outlet></nxt-games-outlet>
+    </div>
+</div>
