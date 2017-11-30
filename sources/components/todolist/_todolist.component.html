@@ -1,27 +1,35 @@
 <div id="todolist-container">
     <div id="todolist-input-add">
-        <form novalidate>
-            <nxt-input [(value)]="todolistInput" [placeholder]="'Ajouter une tâche' | translate" type="text"></nxt-input>
+        <form novalidate (ngSubmit)="onSubmit()">
+            <nxt-input [(ngModel)]="todolistInput" [(value)]="todolistInput" [placeholder]="'Ajouter une tâche' | translate" type="text"></nxt-input>
         </form>
     </div>
     <div id="todolist">
         <ul id="todolist-content">
-            <!-- Remplacez les 'todoTest' par votre code -->
+           <!-- &lt;!&ndash; Remplacez les 'todoTest' par votre code &ndash;&gt;
             <li class="todo-input" [ngClass]="{'completed': todoTest.completed}">
                 <nxt-checkbox [(value)]="todoTest.completed"></nxt-checkbox>
                 <div class="todo-content">
                     <span class="todo-text">{{ todoTest.text }}</span>
                 </div>
                 <button type="button" class="destroy"><span class="fa fa-trash"></span></button>
+            </li>-->
+
+            <li *ngFor="let task of (todoList | todolist : selectedFilter ); let i = index" class="todo-input" [ngClass]="{'completed': task.completed}">
+                <nxt-checkbox [(value)]="task.completed"></nxt-checkbox>
+                <div class="todo-content">
+                    <span class="todo-text">{{ task.text }}</span>
+                </div>
+                <button type="button" class="destroy"  (click)="onTaskDelete($event, task)"><span class="fa fa-trash"></span></button>
             </li>
         </ul>
     </div>
-    <div id="todolist-footer">
+    <div id="todolist-footer" *ngIf="todoList.length > 0">
         <div id="task-left">{{ '{$0} tâche(s) restante(s)' | translate: [ tasksLeft() ]}}</div>
         <div id="filters">
-            <button type="button" id="all-filter" [ngClass]="{'active': selectedFilter === 'all'}">{{ 'Toutes' | translate }}</button>
-            <button type="button" id="actives-filter" [ngClass]="{'active': selectedFilter === 'actives'}">{{ 'Actives' | translate }}</button>
-            <button type="button" id="completed-filter" [ngClass]="{'active': selectedFilter === 'completed'}">{{ 'Terminées' | translate }}</button>
+            <button type="button" id="all-filter" [ngClass]="{'active': selectedFilter === 'all'}" (click)="onFilterSelect('all')" >{{ 'Toutes' | translate }}</button>
+            <button type="button" id="actives-filter" [ngClass]="{'active': selectedFilter === 'actives'}"  (click)="onFilterSelect('actives')">{{ 'Actives' | translate }}</button>
+            <button type="button" id="completed-filter" [ngClass]="{'active': selectedFilter === 'completed'}"  (click)="onFilterSelect('completed')">{{ 'Terminées' | translate }}</button>
         </div>
     </div>
 </div>

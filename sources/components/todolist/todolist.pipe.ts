@@ -6,7 +6,17 @@ import { TodoList } from './todolist.class'
     name: 'todolist',
 })
 export class TodolistPipe implements PipeTransform {
-    public transform (input: TodoList[]): TodoList[] {
-        return input
+    public transform (input: TodoList[], selectedFilter: string): TodoList[] {
+        if (selectedFilter === 'all') {
+            return input
+        }
+
+        if (selectedFilter === 'completed') {
+            return  input.filter((task) => task.completed)
+        }
+
+        if (selectedFilter === 'actives') {
+            return  input.filter((task) => !task.completed)
+        }
     }
 }
